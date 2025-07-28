@@ -8,7 +8,7 @@ API_KEY = os.getenv('GOOGLE_API_KEY') # Carrega a chave da variável de ambiente
 # Exemplo: Av. Paulista
 CENTRO_LAT_LNG = "-23.56068855881027, -46.657508961984945" 
 RAIO_EM_METROS = 7000  # 7 km
-TIPO_DE_NEGOCIO = "churrascaria" # Outros exemplos: "pizzaria", "hamburgueria", "sushi"
+TIPO_DE_NEGOCIO = "temakeria" # Outros exemplos: "pizzaria", "hamburgueria", "sushi"
 NOME_ARQUIVO_SAIDA = "analise_concorrentes.csv"
 
 # --- FUNÇÃO PARA BUSCAR CONCORRENTES ---
