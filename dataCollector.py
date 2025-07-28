@@ -1,9 +1,10 @@
 import requests
 import pandas as pd
 import time
+import os
 
 # --- CONFIGURAÇÕES ---
-API_KEY = "INSIRA SUA CHAVE API" # SUA CHAVE API
+API_KEY = os.getenv('GOOGLE_API_KEY') # Carrega a chave da variável de ambiente
 # Exemplo: Av. Paulista
 CENTRO_LAT_LNG = "-23.56068855881027, -46.657508961984945" 
 RAIO_EM_METROS = 7000  # 7 km
@@ -70,8 +71,9 @@ def organizar_e_salvar_csv(lugares, filename):
 
 # --- EXECUÇÃO PRINCIPAL ---
 if __name__ == "__main__":
-    if API_KEY == "SUA_CHAVE_DE_API_VEM_AQUI":
-        print("ERRO: Por favor, substitua 'SUA_CHAVE_DE_API_VEM_AQUI' pela sua chave da API do Google Cloud.")
+    if not API_KEY:
+        print("ERRO: A variável de ambiente GOOGLE_API_KEY não foi encontrada.")
+        print("Por favor, configure a variável de ambiente com sua chave da API do Google.")
     else:
         concorrentes = buscar_concorrentes(API_KEY, CENTRO_LAT_LNG, RAIO_EM_METROS, TIPO_DE_NEGOCIO)
         if concorrentes:
